@@ -1075,11 +1075,8 @@ app.use(cors());
 app.use(express.json());
 
 const pool = new Pool({
-  host: process.env.DB_HOST || "localhost",
-  port: process.env.DB_PORT || 5432,
-  user: process.env.DB_USER || "sandip",
-  password: process.env.DB_PASSWORD || "",
-  database: process.env.DB_NAME || "control_tower",
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
   max: 50,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 5000,
