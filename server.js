@@ -14,6 +14,8 @@ const pool = new Pool({
   user: process.env.DB_USER || "sandip",
   password: process.env.DB_PASSWORD || "",
   database: process.env.DB_NAME || "control_tower",
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
   max: 50,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 5000,
